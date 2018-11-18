@@ -24,7 +24,18 @@
 #   go-tests = true
 #   unused-packages = true
 
+# 项目元数据
+[metadata]
+  homepage = "https://github.com/sampx"
+  license = "MIT"
+  owners_name_1 = "Sampx"
+  owners_email_1 = "Sam618.xu@gmail.com"
+  owners_homepage_1 = "https://blog.udock.cn"
 
 [prune]
   go-tests = true
   unused-packages = true
+
+[[constraint]]
+  name = "github.com/kataras/iris"
+  version = "10.6.5"
