@@ -24,5 +24,6 @@ func main() {
 		if err := enc.Encode(&v); err != nil {
 			log.Println(err)
 		}
+		log.Println(v)
 	}
 }
