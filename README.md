@@ -2,5 +2,4 @@
 
 go 语言学习
 
-- [golang](#golang)
-
+1. [golang](#golang)

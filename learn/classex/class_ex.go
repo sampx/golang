@@ -60,9 +60,9 @@ type Books struct {
 
 func main() {
 	//simpleTest()
-	//advTest()
+	advTest()
 	//attrOverideTest()
-	methodOverloadTest()
+	//methodOverloadTest()
 
 }
 

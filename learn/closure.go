@@ -2,7 +2,9 @@ package main
 
 import "fmt"
 
-func getSequence() func() int {
+type addOneFunc func() int
+
+func getSequence() addOneFunc {
 	i := 0
 	return func() int {
 		i++
@@ -11,7 +13,7 @@ func getSequence() func() int {
 }
 
 func main() {
-	/* nextNumber 为一个函数，函数 i 为 0 */
+	/* nextNumber 为一个函数，i 为 0 */
 	nextNumber := getSequence()
 
 	/* 调用 nextNumber 函数，i 变量自增 1 并返回 */

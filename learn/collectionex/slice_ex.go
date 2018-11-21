@@ -5,7 +5,7 @@ import "fmt"
 //slice并不是真正意义上的动态数组，而是一个引用类型。
 //slice总是指向一个底层array，slice的声明也可以像array一样，只是不需要长度。
 func main() {
-	sliceTest()
+	//sliceTest()
 	advSliceTest()
 }
 
