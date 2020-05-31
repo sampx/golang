@@ -26,7 +26,7 @@ type ElderlyGent interface {
 	SpendSalary(amount float32)
 }
 
-//Human 定义类：人，实现了接口：人
+//Human 定义类：人
 type Human struct {
 	name   string
 	age    int
