@@ -1,4 +1,4 @@
-package main
+package webserverex
 
 import (
 	"crypto/md5"
@@ -14,7 +14,7 @@ import (
 )
 
 func sayhello(w http.ResponseWriter, r *http.Request) {
-	r.ParseForm() //
+	r.ParseForm()
 	//注意:如果没有调用ParseForm方法，下面无法获取表单的数据
 	fmt.Println(r.Form) //这些信息是输出到服务器端的打印信息
 	fmt.Println("path", r.URL.Path)
@@ -35,7 +35,7 @@ func login(w http.ResponseWriter, r *http.Request) {
 		t, _ := template.ParseFiles("login.gtpl")
 		log.Println(t.Execute(w, nil))
 	} else {
-		//r.ParseForm()
+		r.ParseForm()
 		//请求的是登录数据，那么执行登录的逻辑判断
 		fmt.Println("username:", r.Form["username"])
 		fmt.Println("password:", r.Form["password"])
@@ -73,7 +73,7 @@ func upload(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func main() {
+func StartHttpServer() {
 	http.HandleFunc("/", sayhello)   //设置访问的路由
 	http.HandleFunc("/login", login) //设置访问的路由
 	http.HandleFunc("/upload", upload)

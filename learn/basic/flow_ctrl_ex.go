@@ -1,16 +1,8 @@
-package main
+package basic
 
 import "fmt"
 
-func main() {
-	//ifTest()
-	//gotoTest()
-	//forTest()
-	//whileTest()
-	switchTest()
-}
-
-func ifTest() {
+func IfTest() {
 	// 计算获取值x,然后根据x返回的大小，判断是否大于10。
 	if x := computedValue(); x > 10 { //x 的作用域只在 if 块内
 		fmt.Println("x is greater than 10")
@@ -24,7 +16,7 @@ func computedValue() int {
 	return 3 * 5
 }
 
-func gotoTest() {
+func GotoTest() {
 	i := 0
 Here: //这行的第一个词，以冒号结束作为标签,标签名是大小写敏感的。
 	println(i)
@@ -35,7 +27,7 @@ Here: //这行的第一个词，以冒号结束作为标签,标签名是大小�
 	}
 }
 
-func forTest() {
+func ForTest() {
 	sum := 0
 	for index := 1; index <= 100; index++ {
 		sum += index
@@ -43,7 +35,7 @@ func forTest() {
 	fmt.Println("sum is equal to ", sum)
 }
 
-func whileTest() {
+func WhileTest() {
 	sum := 1
 Loop:
 	for sum < 100 {
@@ -56,7 +48,7 @@ Loop:
 	fmt.Println("sum is equal to ", sum)
 }
 
-func switchTest() {
+func SwitchTest() {
 	integer := 6
 	switch integer {
 	case 4:

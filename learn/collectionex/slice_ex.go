@@ -1,15 +1,10 @@
-package main
+package collectionex
 
 import "fmt"
 
 //slice并不是真正意义上的动态数组，而是一个引用类型。
 //slice总是指向一个底层array，slice的声明也可以像array一样，只是不需要长度。
-func main() {
-	//sliceTest()
-	advSliceTest()
-}
-
-func sliceTest() {
+func SliceTest() {
 	slice := []byte{'a', 'b', 'c', 'd'} // 和声明array一样，只是少了长度
 	fmt.Printf("%c\n", slice)
 	// 声明一个含有10个元素元素类型为byte的数组
@@ -30,7 +25,7 @@ func sliceTest() {
 	fmt.Printf("%c,%c,%c\n", a, b, arr)
 }
 
-func advSliceTest() {
+func AdvSliceTest() {
 	var numbers []int   //创建slice
 	printSlice(numbers) //长度默认为0
 
@@ -59,4 +54,31 @@ func advSliceTest() {
 
 func printSlice(x []int) {
 	fmt.Printf("len=%d cap=%d slice=%v\n", len(x), cap(x), x)
+}
+
+func SliceFilterTest() {
+	slice := []int{1, 2, 3, 4, 5, 7}
+	fmt.Println("slice = ", slice)
+	odd := filter(slice, isOdd) // 函数当做值来传递了
+	fmt.Println("Odd elements of slice are: ", odd)
+	even := filter(slice, isEven) // 函数当做值来传递了
+	fmt.Println("Even elements of slice are: ", even)
+}
+
+func isOdd(integer int) bool {
+	return integer%2 != 0
+}
+
+func isEven(integer int) bool {
+	return integer%2 == 0
+}
+
+// 声明的函数类型在这个地方当做了一个参数
+func filter(slice []int, f testInt) (result []int) {
+	for _, value := range slice {
+		if f(value) {
+			result = append(result, value)
+		}
+	}
+	return
 }

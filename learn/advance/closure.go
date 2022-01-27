@@ -1,4 +1,4 @@
-package main
+package advance
 
 import "fmt"
 
@@ -12,7 +12,7 @@ func getSequence() addOneFunc {
 	}
 }
 
-func main() {
+func ClosureTest() {
 	/* nextNumber 为一个函数，i 为 0 */
 	nextNumber := getSequence()
 

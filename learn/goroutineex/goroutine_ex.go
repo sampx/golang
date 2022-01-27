@@ -1,4 +1,4 @@
-package main
+package goroutineex
 
 import (
 	"fmt"
@@ -10,6 +10,10 @@ import (
 )
 
 var logger *log.Logger
+
+func init() {
+	logger = log.New(os.Stdout, "", log.Lmicroseconds|log.Lshortfile)
+}
 
 func say(s string) {
 	for i := 0; i < 2; i++ {
@@ -58,7 +62,7 @@ func fib(n int, c chan int) {
 	close(c) //如果用range读取,此处必须手动关闭chan,否则range会持续读取导致主线程deadlock
 }
 
-func buffChanTest() {
+func BuffChanTest() {
 	c := make(chan int, 5) //在5个之内是非阻塞,也就是说即使不读取chan c,发送方可以持续写入5个元素到缓存队列,然后就会阻塞
 	logger.Println("开始fib....")
 	go fib(10, c) //长度大于5,如果没有接收方读取,fib函数将执行到一半后会阻塞
@@ -74,7 +78,7 @@ func buffChanTest() {
 	logger.Println("all done.")
 }
 
-func chanTest() {
+func ChanTest() {
 	a := []int{7, 2, 8, -9, 4, 0, 9}
 	//拆成两部分，各自计算和,然后再汇总起来
 	logger.Println("sum开始计算第一部分:", a[:len(a)/2])
@@ -93,7 +97,7 @@ func chanTest() {
 	logger.Println(x, y, x+y)
 }
 
-func routineTest() {
+func RoutineTest() {
 	for index := 0; index < 10; index++ { //启动10个gorutine
 		go say(strconv.Itoa(index))
 	}
@@ -116,7 +120,7 @@ func fib1(c, quit chan int) {
 	}
 }
 
-func selectTest(v bool) {
+func SelectTest(v bool) {
 	c := make(chan int) //创建一个无缓存的chan
 	quit := make(chan int, 1)
 	rst := make([]int, 0, 10)
@@ -136,7 +140,7 @@ func selectTest(v bool) {
 	logger.Println("all done.")
 }
 
-func selectDefaultTest() {
+func SelectDefaultTest() {
 	tick := time.Tick(100 * time.Millisecond)
 	boom := time.After(1000 * time.Millisecond)
 	//Out:
@@ -155,7 +159,7 @@ func selectDefaultTest() {
 	}
 }
 
-func readWriteTest() {
+func ReadWriteTest() {
 	ch1 := make(chan int)
 	ch2 := make(chan bool)
 	logger.Println("start writer...")
@@ -197,7 +201,7 @@ func write(ch chan int) {
 //2. 关闭一个已经关闭的channel也会导致panic: close of closed channel
 //3. channel关闭后，仍然可以从中读取以发送的数据，读取完数据后，将读取到零值，可以多次读取。
 //4. 用range读取channel,如果不手动关闭channel,进程将一直阻塞在当前协程,并导致所有协程阻塞死锁
-func chanClosetest() {
+func ChanClosetest() {
 	ch := make(chan int, 3)
 	ch <- 3
 	ch <- 2
@@ -210,7 +214,7 @@ func chanClosetest() {
 	fmt.Print(<-ch) //0
 }
 
-func rangeReadTest() {
+func RangeReadTest() {
 	data := make(chan int)
 	exit := make(chan bool)
 
@@ -230,17 +234,4 @@ func rangeReadTest() {
 
 	println("send over")
 	<-exit
-}
-
-func main() {
-	logger = log.New(os.Stdout, "", log.Lmicroseconds|log.Lshortfile)
-	logger.Println("cpus: ", runtime.NumCPU())
-	//routineTest()
-	//chanTest()
-	//buffChanTest()
-	//selectTest(true)
-	//selectDefaultTest()
-	//readWriteTest()
-	//chanClosetest()
-	rangeReadTest()
 }

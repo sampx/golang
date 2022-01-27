@@ -1,4 +1,4 @@
-package main
+package advance
 
 import "fmt"
 
@@ -7,7 +7,7 @@ MAX COUNT
 */
 const MAX int = 3
 
-func main() {
+func PtrArrayTest() {
 	a := [MAX]int{10, 100, 200} //数组
 	//a.append(50) //数组没有append方法
 	//printSlice(a)

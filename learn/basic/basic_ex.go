@@ -1,7 +1,6 @@
-package main
+package basic
 
 import (
-	"errors"
 	"fmt"
 )
 
@@ -14,14 +13,7 @@ const (
 
 var isActive bool // 全局变量声明
 
-func main() {
-	varTest()
-	constTest()
-	stringTest()
-	errTest()
-}
-
-func constTest() {
+func ConstTest() {
 	const (
 		i = 10000
 		s = i //const s 未使用，不会报错
@@ -30,7 +22,8 @@ func constTest() {
 	println(prefix, i)
 }
 
-func varTest() {
+func VarTest() {
+	println(MaxThread, Pi, isActive)
 	var available bool // 一般声明, 默认false
 	valid := false     // 简短声明
 	available = true   // 赋值操作
@@ -49,11 +42,11 @@ func varTest() {
 	fmt.Printf("Value is: %v\n", e) //output: (5+5i)
 }
 
-func stringTest() {
-	var frenchHello string       //声明变量为字符串的一般方法
-	japaneseHello := "Konichiwa" //声明 + 赋值
-	var emptyString = ""         // 声明了一个字符串变量，初始化为空字符串
-	println(frenchHello == emptyString)
+func StringTest() {
+	var frenchHello string              //声明变量为字符串的一般方法,string初始值是""
+	japaneseHello := "Konichiwa"        //声明 + 赋值
+	var emptyString = ""                // 声明了一个字符串变量，初始化为空字符串
+	println(frenchHello == emptyString) // true
 
 	frenchHello = "Bonjour"                //常规赋值
 	no, yes, maybe := "no", "yes", "maybe" // 简短声明，同时声明多个变量
@@ -65,21 +58,14 @@ func stringTest() {
 	bEmptyString := []byte(emptyString) //转变成byte数组后可以改变
 	bEmptyString[0] = 'c'
 	emptyString = string(bEmptyString)
-	fmt.Printf("%s\n", emptyString)
+	fmt.Printf("%s\n", emptyString) //ctr
 	//字符串连接
 	fmt.Printf("%s\n", emptyString+maybe)
 	//字符串切片
-	emptyString = "a" + emptyString[1:] // 字符串虽不能更改，但可进行切片操作
+	emptyString = "a" + emptyString[1:] // 字符串虽不能更改，但可进行切片操作,atr
 	fmt.Printf("%s\n", emptyString)
 	//多行字符串
 	mlineString := `hello
 	                      world`
 	fmt.Printf("%s\n", mlineString)
-}
-
-func errTest() {
-	err := errors.New("emit macho dwarf: elf header corrupted")
-	if err != nil {
-		fmt.Print(err)
-	}
 }

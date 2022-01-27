@@ -1,4 +1,4 @@
-package main
+package basic
 
 import (
 	"fmt"
@@ -58,16 +58,8 @@ type Books struct {
 	bookID  int
 }
 
-func main() {
-	//simpleTest()
-	advTest()
-	//attrOverideTest()
-	//methodOverloadTest()
-
-}
-
 //方法重载
-func methodOverloadTest() {
+func MethodOverloadTest() {
 	mark := Student{Human: Human{name: "Mark", age: 25, weight: 100, phone: "111"}, speciality: "PE", phone: "123"}
 	sam := Employee{Human: Human{name: "Sam", age: 41, weight: 120, phone: "000"}, company: "CU", phone: "453"}
 
@@ -79,7 +71,7 @@ func methodOverloadTest() {
 }
 
 //属性重写
-func attrOverideTest() {
+func AttrOverideTest() {
 	// 初始化学生Jane
 	jane := Student{Human: Human{name: "Jane", age: 35, weight: 100, phone: "123"}, speciality: "Biology", int: 5, phone: "456"}
 	// 现在我们来访问相应的字段
@@ -101,7 +93,7 @@ func attrOverideTest() {
 	fmt.Println("Her preferred number is", jane.int)
 }
 
-func advTest() {
+func AdvTest() {
 	// 我们初始化一个学生
 	mark := Student{Human: Human{"Mark", 25, 120, "123"}, speciality: "Computer Science"}
 
@@ -131,7 +123,7 @@ func advTest() {
 	fmt.Println("His speciality is ", mark.speciality)
 }
 
-func simpleTest() {
+func SimpleTest() {
 	var Book1 Books /* 声明 Book1 为 Books 类型 */
 	var Book2 Books /* 声明 Book2 为 Books 类型 */
 	var ptr *Books  //申明一个指向books的指针

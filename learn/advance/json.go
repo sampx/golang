@@ -1,4 +1,4 @@
-package main
+package advance
 
 import (
 	"encoding/json"
@@ -14,7 +14,7 @@ type Product struct {
 	IsOnSale  bool    `json:"is_on_sale,bool"` //改名
 }
 
-func simpleTest() {
+func JsonTest() {
 	p := &Product{}
 	p.Name = "Xiao mi 6"
 	p.IsOnSale = true
@@ -23,8 +23,4 @@ func simpleTest() {
 	p.ProductID = 1
 	data, _ := json.Marshal(p)
 	fmt.Println(string(data))
-}
-
-func main() {
-	simpleTest()
 }

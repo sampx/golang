@@ -1,4 +1,4 @@
-package main
+package basic
 
 import (
 	"fmt"
@@ -75,13 +75,7 @@ type Circle struct {
 	radius float64
 }
 
-func main() {
-	//circleAreaTest()
-	//rectangleAreaTest()
-	complexTest()
-}
-
-func complexTest() {
+func ComplexTest() {
 	boxes := BoxList{
 		Box{4, 4, 4, RED},
 		Box{10, 10, 1, YELLOW},
@@ -103,14 +97,14 @@ func complexTest() {
 	fmt.Println("Obviously, now, the biggest one is", boxes.BiggestColor().name())
 }
 
-func circleAreaTest() {
+func CircleAreaTest() {
 	var c1 Circle
 	c1.radius = 5.00
 	p := &c1
 	fmt.Println("Area of Circle(c1) = ", p.area())
 }
 
-func rectangleAreaTest() {
+func RectangleAreaTest() {
 	r1 := Rectangle{width: 3.2, height: 1.8}
 	fmt.Println("Area of Rectangle(r1) = ", (&r1).area())
 }

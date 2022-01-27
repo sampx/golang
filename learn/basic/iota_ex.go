@@ -1,4 +1,4 @@
-package main
+package basic
 
 import (
 	"fmt"
@@ -25,7 +25,7 @@ const (
 	g       = iota             //g = 4
 )
 
-func main() {
+func IotaTest() {
 	fmt.Println("x, y, z, w:", x, y, z, w)
 	fmt.Println("h, i, j, v:", h, i, j, v)
 	fmt.Println("a, b, c, d, e, f, g:", a, b, c, d, e, f, g)

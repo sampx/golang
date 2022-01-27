@@ -1,4 +1,4 @@
-package main
+package webserverex
 
 import (
 	"context"
@@ -35,9 +35,9 @@ func cancelContextTest() {
 	logg.Printf("done.")
 }
 
-func main() {
+func HttpContexTest() {
 	logg = log.New(os.Stdout, "", log.Ltime)
-	//cancelContextTest()
+	cancelContextTest()
 	timeoutContextTest()
 }
 

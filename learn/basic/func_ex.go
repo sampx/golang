@@ -1,29 +1,29 @@
-package main
+package basic
 
 import (
 	"errors"
 	"fmt"
 )
 
-func main() {
-	//simplefuncTest()
-	//multiValFuncTest()
-	//passValPeraTest()
-	//passPeraPtrTest()
+type simplefunc func(int) bool // 声明了一个函数类型
+
+func GetFunc() simplefunc {
+	return FuncTypeTest
 }
 
-func funcTypeTest(){
-	fmt.Println(type(simplefuncTest))
+func FuncTypeTest(i int) bool {
+	fmt.Printf("function type is %T \n", GetFunc())
+	return true
 }
 
-func simplefuncTest() {
+func SimplefuncTest() {
 	b, l := max(2, 9)
 	println(b, l)
 	h, j := SumAndProduct(b, l)
 	println(h, j)
 }
 
-func multiValFuncTest() {
+func MultiValFuncTest() {
 	m, err := varaPeraMax(4, 6, 8, 34)
 	if err == nil {
 		println("max val:", m)
@@ -33,7 +33,7 @@ func multiValFuncTest() {
 }
 
 //函数参数值传递
-func passValPeraTest() {
+func PassValPeraTest() {
 	x := 3
 	fmt.Println("x = ", x)    // 应该输出 "x = 3"
 	x1 := add(x)              //调用add(x)
@@ -43,7 +43,7 @@ func passValPeraTest() {
 
 //函数参数指针（引用）传递
 //channel，slice，map这三种类型的实现机制类似指针，所以可以直接传递，而不用取地址后传递指针
-func passPeraPtrTest() {
+func PassPeraPtrTest() {
 	x := 3
 	fmt.Println("x = ", x)    // 应该输出 "x = 3"
 	x1 := addPtr(&x)          //调用addPtr(&x)，传递x变量的指针（内存地址）

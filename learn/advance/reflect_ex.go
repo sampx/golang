@@ -1,11 +1,11 @@
-package main
+package advance
 
 import (
 	"fmt"
 	"reflect"
 )
 
-func main() {
+func ReflectTest() {
 	var x = 3.4
 	v := reflect.ValueOf(x)
 	fmt.Println("type:", v.Type())

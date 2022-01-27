@@ -1,4 +1,4 @@
-package main
+package basic
 
 import (
 	"fmt"
@@ -100,7 +100,7 @@ func (e *Employee) SpendSalary(amount float32) {
 	println(e.name, "I have money:", e.money)
 }
 
-func complexTest() {
+func ComplexTest() {
 	Mike := Student{Human: Human{name: "Mike", age: 25, weight: 100, phone: "111"}, speciality: "PE", phone: "123", loan: 0.2}
 	Sam := Employee{Human: Human{name: "Sam", age: 41, weight: 120, phone: "000"}, company: "CU", phone: "453", money: 200000}
 	lucy := Employee{Human: Human{name: "Lucy", age: 68, weight: 100, phone: "000"}, company: "CU", phone: "666", money: 500000}
@@ -138,7 +138,7 @@ func blankInterfaceTest(args ...Any) {
 
 type listAny []Any
 
-func main() {
+func InterfaceTest() {
 	//complexTest()
 	l := make(listAny, 3)
 	l[0] = 1       //an int
