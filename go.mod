@@ -8,6 +8,7 @@ replace (
 	github.com/sampx/golang/learn/collectionex => ./learn/collectionex
 	github.com/sampx/golang/learn/goroutineex => ./learn/goroutineex
 	github.com/sampx/golang/learn/http/webserverex => ./learn/http/webserverex
+	github.com/sampx/golang/utils/commonutil => ./utils/commonutil
 )
 
 require (

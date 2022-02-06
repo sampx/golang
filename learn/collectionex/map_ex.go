@@ -4,7 +4,6 @@ import "fmt"
 
 //map的长度是不固定的，也就是和slice一样，也是一种引用类型
 //map和其他基本型别不同，它不是thread-safe，在多个go-routine存取时，必须使用mutex lock机制
-
 func SimpleMapTest() {
 	// 声明一个key是字符串，值为int的字典,
 	var numbers = map[string]int{"five": 5, "four": 4, "three": 3, "two": 2}

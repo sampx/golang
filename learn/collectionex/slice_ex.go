@@ -29,9 +29,10 @@ func AdvSliceTest() {
 	var numbers []int   //创建slice
 	printSlice(numbers) //长度默认为0
 
-	/* 追加空切片 */
 	//内置函数append 向slice里面追加一个或者多个元素，然后返回一个和slice一样类型的slice
 	//注：append函数会改变slice所引用的数组的内容，从而影响到引用同一数组的其它slice。
+
+	/* 追加空切片 */
 	numbers = append(numbers, 0)
 	printSlice(numbers)
 
@@ -72,6 +73,8 @@ func isOdd(integer int) bool {
 func isEven(integer int) bool {
 	return integer%2 == 0
 }
+
+type testInt func(int) bool
 
 // 声明的函数类型在这个地方当做了一个参数
 func filter(slice []int, f testInt) (result []int) {

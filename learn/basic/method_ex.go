@@ -75,7 +75,7 @@ type Circle struct {
 	radius float64
 }
 
-func ComplexTest() {
+func MethodComplexTest() {
 	boxes := BoxList{
 		Box{4, 4, 4, RED},
 		Box{10, 10, 1, YELLOW},
