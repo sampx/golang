@@ -32,7 +32,7 @@ func MultiValFuncTest() {
 	}
 }
 
-//函数参数值传递
+// PassValPeraTest 函数参数值传递
 func PassValPeraTest() {
 	x := 3
 	fmt.Println("x = ", x)    // 应该输出 "x = 3"
@@ -41,7 +41,7 @@ func PassValPeraTest() {
 	fmt.Println("x = ", x)    // x的值未改变，输出"x = 3"
 }
 
-//函数参数指针（引用）传递
+// PassPeraPtrTest 函数参数指针（引用）传递
 //channel，slice，map这三种类型的实现机制类似指针，所以可以直接传递，而不用取地址后传递指针
 func PassPeraPtrTest() {
 	x := 3
